@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmjk5737k3ei1"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_7vsm1"]
+[ext_resource type="Texture2D" uid="uid://drg03q6lxhowr" path="res://assets/board.jpg" id="1_bkjah"]
+[ext_resource type="Texture2D" uid="uid://d32q7mfmyrj7v" path="res://assets/player.jpg" id="3_d6u34"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_7vsm1")
+
+[node name="Board" type="Sprite2D" parent="."]
+position = Vector2(400.029, 400.045)
+scale = Vector2(0.835197, 0.835197)
+texture = ExtResource("1_bkjah")
+
+[node name="BoardGrid" type="GridContainer" parent="."]
+offset_left = 53.0
+offset_top = 43.0
+offset_right = 109.0
+offset_bottom = 99.0
+columns = 10
+
+[node name="RollDiceButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Roll Dice"
+
+[node name="PlayerToken" type="Sprite2D" parent="."]
+position = Vector2(37, 756)
+scale = Vector2(0.4375, 0.4375)
+texture = ExtResource("3_d6u34")
+
+[node name="RewardLabel" type="Label" parent="."]
+visible = false
+offset_left = 234.0
+offset_top = 23.0
+offset_right = 274.0
+offset_bottom = 46.0
+
+[connection signal="pressed" from="RollDiceButton" to="." method="_on_roll_dice_button_pressed"]
